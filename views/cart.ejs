@@ -1,0 +1,32 @@
+<%- include("header") -%>
+<% var total = 0;%>
+<section class="cart-page container-fluid">
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th scope="col">Product name</th>
+        <th scope="col">Price</th>
+        <th scope="col">Remove</th>
+      </tr>
+    </thead>
+
+    <% newItem.forEach(function(item){ %>
+    <form class="" action="/REMOVE" method="POST">
+      <tr>
+        <td><%= item.name %></td>
+        <td><%= item.cost %></td>
+        <td><button class="btn btn-outline-dark" type="submit" name="remove" value="<%= item._id%>">Remove</button></td>
+      </tr>
+    </form>
+    <% total += item.cost;%>
+    <%  }); %>
+
+  </table>
+  <form class="" action="/BUY" method="POST">
+    <button class="btn btn-outline-primary" type="submit" name="button">Place your order</button><br><br>
+    <h3> Order Subtotal :  Rs. <%= total %> </h3>
+    <h3> <%= success %></h3>
+  </form>
+</section>
+
+<%- include("footer") -%>

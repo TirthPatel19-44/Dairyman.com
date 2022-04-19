@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>signup</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
+  </head>
+  <style media="screen">
+    .about{
+      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+      height: relative;
+      max-width: 100%;
+      text-align: center;
+      margin-top: 750px
+    }
+  </style>
+  <body>
+    <section id="title">
+
+
+      <nav class="navbar fixed-top navbar-expand-lg navbar-light " style="background-color: #3DB2FF">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="/">
+            <img src="/logoimage/Logo.jpg" alt="" width="60" height="54" class="d-inline-block align-text-middle">
+            DAIRYMAN.COM
+          </a>
+
+
+          <ul class="nav justify-content-end">
+            <li class="nav-item">
+              <a class="nav-link active home" aria-current="page" href="/"><button type="button" class="btn btn-outline-dark" name="button">HOME</button></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active login" aria-current="page" href="/login"><button type="button" class="btn btn-outline-dark" name="button">LOGIN</button></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active signin" aria-current="page" href="/signup"><button type="button" class="btn btn-outline-dark" name="button">SIGN-UP</button></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active order" aria-current="page" href="/setorder"><button type="button" class="btn btn-outline-dark" name="button">SET ORDER</button></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active cart" aria-current="page" href="/cart"><button type="button" class="btn btn-outline-dark" name="button">CART</button></a>
+            </li>
+          </ul>
+
+        </div>
+      </nav>
+
+    </section>
+
+    <div class="authentication">
+
+
+      <form class="row g-3 container1" method="POST" action="/SIGNUP">
+        <div class="col-md-6">
+          <label for="firstname4" class="form-label">First name *</label>
+          <input type="text" name="Fname" class="form-control" id="firstname4" required>
+        </div>
+        <div class="col-md-6">
+          <label for="lastname4" class="form-label">Last name *</label>
+          <input type="text" name="Lname" class="form-control" id="lastname4" required>
+        </div>
+        <div class="col-md-6">
+          <label for="inputEmail4" class="form-label">Email *</label>
+          <input type="email" name="email" class="form-control" id="inputEmail4" required>
+        </div>
+        <div class="col-md-6">
+          <label for="inputPassword4" class="form-label">Password *</label>
+          <input type="password" name="password" class="form-control" id="inputPassword4" required>
+        </div>
+        <div class="col-12">
+          <label for="inputAddress" class="form-label">Address *</label>
+          <input type="text" name="address" class="form-control" id="inputAddress" placeholder="1234 Main St" required>
+        </div>
+        <div class="col-md-6">
+          <label for="inputCity" class="form-label">City</label>
+          <input type="text" name="city" class="form-control" id="inputCity" required>
+        </div>
+        <div class="col-md-4">
+          <label for="inputState" class="form-label">State</label>
+          <select id="inputState" name="state" class="form-select">
+            <option selected>Gujarat</option>
+            <option>Maharashtra</option>
+            <option>Tamil Nadu</option>
+            <option>Andra Pradesh</option>
+          </select>
+        </div>
+        <div class="col-md-2">
+          <label for="inputZip" class="form-label">Zip</label>
+          <input type="text" name="zip" class="form-control" id="inputZip" required>
+        </div>
+        <div class="col-12">
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" id="gridCheck">
+            <label class="form-check-label" for="gridCheck">
+              Check this for not a robot
+            </label>
+          </div>
+        </div>
+        <div class="col-12">
+          <button type="submit" id="signin-btn" class="btn btn-outline-primary">Sign in</button>
+        </div>
+      </form>
+    </div>
+
+
+
+
+    <div class="container-fluid about">
+      <div class="row">
+        <div class="col about-us">
+          <h3>ABOUT US</h3>
+          <br>
+          <p>About to launch in 2021, Dairyman is Ahmedabad's first daily micro-delivery service. built on the unique Indian habit of getting fresh milk delivered at home every morning. Dairyman is duldilling the entire grocery needs of a household
+            everyday before 7:00 a.m. To enable frequent and friction-less buying, Dairyman has innivated flexi ordering and contactless delivery</p>
+        </div>
+        <div class="col contact">
+          <h3>CONTACT US</h3>
+          <br>
+          <p>Mail : dairyman@hotmail.com <i class="fas fa-inbox"></i></p>
+          <p>Mobile : +91 987654321 <i class="fas fa-phone-square-alt"></i></p>
+
+        </div>
+        <div class="col social">
+          <h3> GET SOCIAL WITH US</h3>
+          <br>
+          <img src="logoimage\social-media.png" class="media" alt="">
+        </div>
+      </div>
+
+    </div>
+  </body>
+</html>
