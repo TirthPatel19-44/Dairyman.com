@@ -158,7 +158,7 @@ app.post("/BREAD", function(req, res) {
 
 });
 
-app.post("/COOKIE", function(req, res) {
+app.post("/COOKIES", function(req, res) {
   const order = new Order({
     name: "CHOCOLATE COOKIES (2 PACKETS)",
     cost: 50
