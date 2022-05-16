@@ -2,7 +2,6 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 const ejs = require("ejs");
-
 const app = express();
 
 app.set('view engine', 'ejs');
@@ -56,7 +55,10 @@ app.get("/", function(req, res) {
 });
 
 app.get("/login", function(req, res) {
-  res.sendFile(__dirname + "/login.html");
+    res.render("login", {
+      logged: "",
+      message: ""
+    });
 });
 
 app.get("/signup", function(req, res) {
@@ -74,13 +76,33 @@ app.post("/LOGIN", function(req, res) {
   const email = req.body.Email;
   const pass = req.body.Password;
 
-  const login = new Login({
-    email: email,
-    password: pass
+  Signup.findOne({
+    email: email
+  }, function(err, foundUser) {
+    if (err) {
+      console.log(err);
+    } else {
+      if (foundUser) {
+        if (foundUser.password === pass) {
+          res.render("login", {
+            logged: "Login Successfull!",
+            message: "Now you can start ordering"
+          });
+        } else {
+          res.render("login",{
+            logged: "Login Failed!",
+            message: "Incorrect password."
+          });
+        }
+      } else {
+          res.render("login",{
+            logged: "Login Failed!",
+            message: "User does not exist."
+          });
+      }
+    }
   });
 
-  login.save();
-  res.redirect("/");
 });
 
 //posting the signup form
@@ -167,10 +189,11 @@ app.post("/COOKIES", function(req, res) {
   res.redirect("/setorder");
 
 });
+
 //rendering the cart page
 app.get("/cart", function(req, res) {
   Order.find({}, function(err, foundItems) {
-    if (foundItems.length == 0) {
+    if (foundItems.length == 0) { //if there are no items in the table then it will redirect to setorder page
       res.redirect("/setorder");
     } else {
       res.render("cart", {
@@ -200,7 +223,7 @@ app.post("/REMOVE", function(req, res) {
   });
 });
 
-app.post("/BUY",function(req,res){
+app.post("/BUY", function(req, res) {
   const successfully = "Your order has been placed successfully!!"
   Order.find({}, function(err, foundItems) {
     if (foundItems.length == 0) {

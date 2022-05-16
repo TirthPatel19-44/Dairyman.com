@@ -11,14 +11,19 @@
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
 </head>
 <style media="screen">
-  .about{
+  .about {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     height: relative;
     max-width: 100%;
     text-align: center;
-    margin-top: 500px
+    margin-top: 500px;
+  }
+
+  .alert {
+    margin-top: 100px;
   }
 </style>
+
 <body>
   <section id="title">
 
@@ -53,6 +58,17 @@
     </nav>
 
   </section>
+  <div class="row">
+    <% if (logged != ""){%>
+    <div class="alert alert-warning alert-dismissible fade show container-fluid" role="alert">
+      <strong><%= logged %></strong> <%= message %>
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <% } %>
+  </div>
+
   <section>
     <div class="authorization">
       <form class="row g-3 container-fluid" method="POST" action="/LOGIN">
@@ -69,35 +85,32 @@
         <button type="submit" id="login-button" class="btn btn-outline-primary">Login</button>
       </form>
     </div>
-
   </section>
 
-  <section>
-    <div class="container-fluid about">
-      <div class="row">
-        <div class="col about-us">
-          <h3>ABOUT US</h3>
-          <br>
-          <p>About to launch in 2021, Dairyman is Ahmedabad's first daily micro-delivery service. built on the unique Indian habit of getting fresh milk delivered at home every morning. Dairyman is duldilling the entire grocery needs of a household
-            everyday before 7:00 a.m. To enable frequent and friction-less buying, Dairyman has innivated flexi ordering and contactless delivery</p>
-        </div>
-        <div class="col contact">
-          <h3>CONTACT US</h3>
-          <br>
-          <p>Mail : dairyman@hotmail.com <i class="fas fa-inbox"></i></p>
-          <p>Mobile : +91 987654321 <i class="fas fa-phone-square-alt"></i></p>
 
-        </div>
-        <div class="col social">
-          <h3> GET SOCIAL WITH US</h3>
-          <br>
-          <img src="logoimage\social-media.png" class="media" alt="">
-        </div>
+  <div class="container-fluid about">
+    <div class="row">
+      <div class="col about-us">
+        <h3>ABOUT US</h3>
+        <br>
+        <p>About to launch in 2021, Dairyman is Ahmedabad's first daily micro-delivery service. built on the unique Indian habit of getting fresh milk delivered at home every morning. Dairyman is duldilling the entire grocery needs of a household
+          everyday before 7:00 a.m. To enable frequent and friction-less buying, Dairyman has innivated flexi ordering and contactless delivery</p>
       </div>
+      <div class="col contact">
+        <h3>CONTACT US</h3>
+        <br>
+        <p>Mail : dairyman@hotmail.com <i class="fas fa-inbox"></i></p>
+        <p>Mobile : +91 987654321 <i class="fas fa-phone-square-alt"></i></p>
 
+      </div>
+      <div class="col social">
+        <h3> GET SOCIAL WITH US</h3>
+        <br>
+        <img src="logoimage\social-media.png" class="media" alt="">
+      </div>
     </div>
-  </section>
 
+  </div>
 </body>
 
 </html>
