@@ -84,10 +84,20 @@ app.post("/LOGIN", function(req, res) {
     } else {
       if (foundUser) {
         if (foundUser.password === pass) {
+          //adding the entry to the database
+          const login = new Login({
+            email: email,
+            password: pass
+          });
+          login.save();
+          
+          //rendering the login page
           res.render("login", {
             logged: "Login Successfull!",
             message: "Now you can start ordering"
           });
+
+
         } else {
           res.render("login",{
             logged: "Login Failed!",
